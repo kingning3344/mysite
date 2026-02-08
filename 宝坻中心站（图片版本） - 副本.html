@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地震监测站简介</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 15px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .station-selector {
+            display: flex;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .station-btn {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: white;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .station-btn.active {
+            background: #1a73e8;
+            color: white;
+        }
+        
+        .station-info {
+            display: none;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .station-info.active {
+            display: block;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1a73e8;
+            border-left: 4px solid #1a73e8;
+            padding-left: 10px;
+        }
+        
+        .info-section {
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #555;
+        }
+        
+        .info-value {
+            flex: 1;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+        
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f1f3f4;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+        
+        .contact-info {
+            background: #e8f0fe;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .image-item {
+            flex: 1 1 calc(50% - 10px);
+            min-width: 0;
+        }
+        
+        .image-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-caption {
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 5px;
+            color: #666;
+        }
+        
+        .station-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 480px) {
+            .info-item {
+                flex-direction: column;
+            }
+            
+            .info-label {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+            
+            .image-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+             <h1>宝坻地震监测中心站简介</h1>
+            <p class="subtitle">天津市地震局直属监测机构</p>
+        </header>
+        
+   
+        
+        <!-- 宝坻地震监测中心站信息 -->
+        <div id="baodi-info" class="station-info active">
+            <img src="images/2.1 天津局宝坻中心站.jpg" alt="宝坻地震监测中心站" class="station-image">
+            
+            <div class="info-section">
+                <h2>基础信息</h2>
+                <div class="info-item">
+                    <span class="info-label">名称:</span>
+                    <span class="info-value">宝坻地震监测中心站 (TJBD)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">隶属:</span>
+                    <span class="info-value">天津市地震局</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">经纬度:</span>
+                    <span class="info-value">117°E, 39°N</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">辖区范围:</span>
+                    <span class="info-value">蓟州区、宝坻区、武清区、北辰区4个区，面积5505平方公里</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">辖区人口:</span>
+                    <span class="info-value">约71万</span>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>职责范围</h2>
+                <div class="info-item">
+                    <span class="info-label">实时监测:</span>
+                    <span class="info-value">24小时不间断完成地震监测数据采集和质量监控</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">长期运维:</span>
+                    <span class="info-value">常态化监控地震监测设施设备</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">数据分析:</span>
+                    <span class="info-value">承担地震灾害风险防治和地震现场应急响应相关工作</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">其他工作:</span>
+                    <span class="info-value">其他科研及相关公共服务工作</span>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>辖区站网情况</h2>
+                <div class="info-item">
+                    <span class="info-label">站点布局:</span>
+                    <span class="info-value">辖区内共有地震监测站94个，其中地球物理监测站16个(观测仪器60套)、测震监测站78个(观测仪器90套)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">机构设置:</span>
+                    <span class="info-value">有4个内设机构</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">在职人员:</span>
+                    <span class="info-value">23人(包含站长1人, 副站长2人)</span>
+                </div>
+                
+                <div class="image-gallery">
+                    <div class="image-item">
+                        <img src="images/baodi-map.png" alt="监测站点分布图">
+                        <div class="image-caption">监测站点分布图</div>
+                    </div>
+                   <div class="image-item">
+                        <img src="images/中心站位置.png" alt="中心站位置">
+                        <div class="image-caption">中心站位置</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h2>对外合作与荣誉</h2>
+                <div class="info-item">
+                    <span class="info-label">科研支撑:</span>
+                    <span class="info-value">为城市抗震设防、重大工程选址提供数据支持</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">公众科普:</span>
+                    <span class="info-value">开放日、校园讲座、社区宣传、设有科普展厅，年接待访客约XXX人次</span>
+                </div>
+                  <div class="image-gallery">
+                    <div class="image-item">
+                       <img src="images/合作.png" alt="对外合作">
+                        <div class="image-caption">对外合作</div>
+                    </div>
+                    <div class="image-item">
+                        <img src="images/荣誉.png" alt="荣誉证书">
+                        <div class="image-caption">荣誉证书</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="contact-info">
+                <h2>联系与参观</h2>
+                <div class="info-item">
+                    <span class="info-label">地址:</span>
+                    <span class="info-value">天津市宝坻区方家庄镇老鸦台村南</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">联系方式:</span>
+                    <span class="info-value">022-XXXXXXXX</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">官网:</span>
+                    <span class="info-value">天津市地震局</span>
+                </div>
+            </div>
+        </div>
